@@ -11,7 +11,6 @@ export function useAuth() {
 
   const loginGoogle = async () => {
     const res: any = await dispatch(loginUserWithGoogle());
-    console.log(res);
     if (res.error) {
       alert(res.payload);
     } else {

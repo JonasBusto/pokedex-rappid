@@ -33,11 +33,9 @@ export function CardPokemon({
   }, [userFav, loggedUser, pokemon.id]);
 
   return (
-    <div
-      className='col-12 col-sm-6 col-lg-4 col-xl-3 p-0'
-      style={{ border: '2px solid black' }}
-    >
+    <div className='col-12 col-sm-6 col-lg-4 col-xl-3 p-0 card-pokemon d-flex'>
       <button
+        className='d-flex justify-content-center align-items-center'
         onClick={
           loggedUser
             ? favFilterd
@@ -46,21 +44,25 @@ export function CardPokemon({
             : handleShowModalSign
         }
       >
-        {loggedUser
-          ? favFilterd
-            ? 'Quitar favorito'
-            : 'Agregar favorito'
-          : 'Agregar'}
+        {loggedUser ? (
+          favFilterd ? (
+            <i className='fa-solid fa-star'></i>
+          ) : (
+            <i className='fa-regular fa-star'></i>
+          )
+        ) : (
+          <i className='fa-regular fa-star'></i>
+        )}
       </button>
-      <Link to={'/pokemon/' + pokemon.name} className='card-pokemon'>
-        <div className='d-flex'>
+      <Link to={'/pokemon/' + pokemon.name}>
+        <div className='d-flex justify-content-center'>
           <img
             className='img-fluid'
             src={pokemon.sprites.other['official-artwork'].front_default}
             alt=''
           />
         </div>
-        <div className='d-flex'>
+        <div className='d-flex justify-content-center align-items-center name-pokemon'>
           <p>
             {'#' +
               (pokemon.order < 10
@@ -71,7 +73,7 @@ export function CardPokemon({
           </p>
           <strong>{pokemon.name}</strong>
         </div>
-        <div className='d-flex'>
+        <div className='d-flex justify-content-center align-items-center detail-pokemon'>
           {pokemon.types.map((type) => (
             <p
               key={type.type.name}

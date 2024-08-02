@@ -7,7 +7,6 @@ const initialState: PokedexState = {
   pokemon: null,
   status: 'Inactivo',
   statusPokemon: 'Inactivo',
-
   error: null,
 };
 

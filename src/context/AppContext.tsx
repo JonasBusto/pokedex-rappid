@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useState } from 'react';
-
 import { ContextInterface } from '../interfaces/context';
 import { useGetData } from '../hooks/useGetData';
 import { useLoad } from '../hooks/useLoad';

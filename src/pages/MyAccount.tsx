@@ -5,7 +5,7 @@ import { useUserAction } from '../hooks/useUserAction';
 import { IPokemon } from '../interfaces/Pokedex/Pokemon/Pokemon';
 
 export function MyAccount() {
-  const { loggedUser } = useAuth();
+  const { loggedUser, logout } = useAuth();
   const { userFav } = useUserAction();
   const { pokemons } = usePokedexAction();
 
@@ -15,21 +15,38 @@ export function MyAccount() {
   );
 
   return (
-    <div>
-      <h4>Mi cuenta</h4>
-      <img src={loggedUser?.photoProfile} alt='' />
-      <p>{loggedUser?.fullName}</p>
-      <p>{loggedUser?.email}</p>
-      <h4>Mis favoritos</h4>
-      <div className='row m-0'>
-        {favPokemons.map((pokemon: IPokemon) => (
-          <CardPokemon
-            key={pokemon.id}
-            pokemon={pokemon}
-            handleShowModalSign={undefined}
-            loggedUser={loggedUser}
-          />
-        ))}
+    <div className='contain-account'>
+      <div className='my-account d-flex flex-column'>
+        <h4>Mi cuenta</h4>
+        <div className='d-flex'>
+          <div>
+            <img src={loggedUser?.photoProfile} alt='' />
+          </div>
+          <div className='name-profile'>
+            <p>{loggedUser?.fullName}</p>
+            <p>{loggedUser?.email}</p>
+          </div>
+        </div>
+        <button
+          className='btn-sign mt-5'
+          style={{ backgroundColor: 'red' }}
+          onClick={logout}
+        >
+          Cerrar Sesión
+        </button>
+      </div>
+      <div className='favorites'>
+        <h4>Mis favoritos</h4>
+        <div className='row m-0'>
+          {favPokemons.map((pokemon: IPokemon) => (
+            <CardPokemon
+              key={pokemon.id}
+              pokemon={pokemon}
+              handleShowModalSign={undefined}
+              loggedUser={loggedUser}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -22,7 +22,6 @@ export function Home() {
 
   return (
     <div>
-      <h1>Pokemon</h1>
       <FormFilter
         handleChangeFilterSearch={handleChangeFilterSearch}
         handleChangeOrderName={handleChangeOrderName}

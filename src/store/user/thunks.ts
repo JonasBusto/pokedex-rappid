@@ -26,7 +26,6 @@ export const loginUserWithGoogle = createAsyncThunk<
 >('user/loginWithGoogle', async () => {
   const googleProvider = new GoogleAuthProvider();
   const res = await signInWithPopup(auth, googleProvider);
-  console.log('auth: ', res);
   const currentUser = res.user;
 
   await setDoc(doc(db, 'users', currentUser.uid), {

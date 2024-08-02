@@ -8,12 +8,12 @@ export function FormFilter({
   handleChangeOrderName: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }) {
   return (
-    <form className='row d-flex justify-content-between align-items-center w-100 form-filter'>
-      <div className='col-12 col-md-8 mb-3'>
+    <form className='row d-flex justify-content-between align-items-center form-filter'>
+      <div className='col-12 col-md-8 mb-3 w-100'>
         <label htmlFor='search'>Buscar</label>
         <input
           name='search'
-          className='form-control'
+          className='form-control w-100'
           placeholder='Buscar pokemon por nombre o tipo'
           type='text'
           onChange={handleChangeFilterSearch}

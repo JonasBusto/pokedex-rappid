@@ -8,6 +8,7 @@ import { AppProvider } from './context/AppContext.tsx';
 import { PrimeReactProvider } from 'primereact/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>

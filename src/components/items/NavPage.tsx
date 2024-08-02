@@ -12,28 +12,49 @@ export function NavPage() {
     handleShowModalSign,
   } = useContext(AppContext);
 
-  const { logout, loggedUser, loginGoogle } = useAuth();
+  const { loggedUser, loginGoogle } = useAuth();
 
   return (
-    <nav>
-      <Link to='/'>PokeApi</Link>
+    <nav className='d-flex justify-content-between'>
+      <Link to='/' className='logo-nav'>
+        <img
+          src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png'
+          alt=''
+        />
+      </Link>
       {!loggedUser && !isLoading && (
-        <>
-          <button onClick={handleShowModalSign}>Iniciar sesión</button>
+        <div className='d-flex align-items-center'>
+          <button className='btn-sign' onClick={handleShowModalSign}>
+            Iniciar sesión
+          </button>
 
-          <Modal show={showModalSign} onHide={handleCloseModalSign}>
-            <Modal.Body>
-              Inicia sesión con google para guardar tus pokemons favoritos
-              <button onClick={loginGoogle}>Login google</button>
+          <Modal
+            className='modal-custom'
+            show={showModalSign}
+            onHide={handleCloseModalSign}
+          >
+            <Modal.Body className='d-flex flex-column'>
+              <img
+                src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png'
+                alt=''
+              />
+              <p>
+                Inicia sesión con google para guardar tus pokemons favoritos
+              </p>
+              <button className='btn-sign' onClick={loginGoogle}>
+                Iniciar Sesión
+              </button>
             </Modal.Body>
           </Modal>
-        </>
+        </div>
       )}
       {loggedUser && (
         <>
-          <button onClick={logout}>Cerrar Sesión</button>
-          <Link to='/account'>
-            <img src={loggedUser.photoProfile} alt='' />
+          <Link
+            to='/account'
+            className='d-flex justify-content-center align-items-center image-profile'
+          >
+            <img className='img-fluid' src={loggedUser.photoProfile} alt='' />
           </Link>
         </>
       )}

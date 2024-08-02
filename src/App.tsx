@@ -5,7 +5,7 @@ import './styles/app.css';
 
 export function App() {
   return (
-    <div>
+    <div className='d-flex flex-column min-vh-100'>
       <Header />
       <Main />
       <Footer />
