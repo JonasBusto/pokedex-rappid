@@ -6,6 +6,7 @@ import { useFilter } from '../hooks/useFilter';
 import { FormFilter } from '../components/items/FormFilter';
 import { useAuth } from '../hooks/useAuth';
 import { DataView } from 'primereact/dataview';
+import { Load } from '../components/items/Load';
 
 export function Home() {
   const { pokemons } = usePokedexAction();
@@ -17,7 +18,7 @@ export function Home() {
   const { isLoading, handleShowModalSign } = useContext(AppContext);
 
   if (isLoading) {
-    return <h1>cargando</h1>;
+    return <Load />;
   }
 
   return (

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePokedexAction } from '../hooks/usePokedexAction';
 import { TYPES_POKEMON_COLOR } from '../helpers/types';
+import { Load } from '../components/items/Load';
 
 export function PokemonDetail() {
   const { name } = useParams();
@@ -27,7 +28,7 @@ export function PokemonDetail() {
   }, []);
 
   if (pokemonStatus === 'Cargando' || pokemonStatus === 'Inactivo') {
-    return <h1>cargando</h1>;
+    return <Load />;
   }
 
   return (

@@ -298,9 +298,17 @@ nav {
   border-radius: 5px;
 }
 
-.contain-account {
-  max-width: 1000px;
-  margin: 0 auto;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
 }
 
 .my-account {
@@ -342,6 +350,21 @@ footer > p {
   padding: 1rem 0;
   font-weight: 700;
   font-size: 1.4rem;
+}
+
+.load-custom {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.load-custom > img {
+  width: 10rem;
+}
+
+.load-custom > p {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 @media (width <=768px) {

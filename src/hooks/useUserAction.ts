@@ -7,12 +7,20 @@ export function useUserAction() {
 
   const dispatch = useAppDispatch();
 
-  const addFav = async ({ pokemonId, userId }: PokemonFavorite) => {
+  const addFav = async (
+    { pokemonId, userId }: PokemonFavorite,
+    { setFavLoading }: { setFavLoading: (arg0: boolean) => void }
+  ) => {
     await dispatch(addFavorite({ pokemonId, userId }));
+    setFavLoading(false);
   };
 
-  const deleteFav = async ({ id }: { id: string }) => {
+  const deleteFav = async (
+    { id }: { id: string },
+    { setFavLoading }: { setFavLoading: (arg0: boolean) => void }
+  ) => {
     await dispatch(deleteFavorite({ id }));
+    setFavLoading(false);
   };
 
   return { addFav, deleteFav, userFav };

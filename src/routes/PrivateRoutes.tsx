@@ -1,13 +1,14 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useLoad } from '../hooks/useLoad';
 import { useAuth } from '../hooks/useAuth';
+import { Load } from '../components/items/Load';
 
 export function PrivateRoute() {
   const { loggedUser } = useAuth();
   const { isLoading } = useLoad();
 
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return <Load />;
   }
 
   if (!loggedUser) {

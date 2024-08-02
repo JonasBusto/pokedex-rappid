@@ -20,6 +20,7 @@ export function CardPokemon({
       (fav) => fav.pokemonId === pokemon.id && fav.userId === loggedUser?.uid
     )
   );
+  const [favLoading, setFavLoading] = useState(false);
 
   useEffect(() => {
     if (loggedUser) {
@@ -39,13 +40,24 @@ export function CardPokemon({
         onClick={
           loggedUser
             ? favFilterd
-              ? () => deleteFav({ id: favFilterd.uid || '' })
-              : () => addFav({ pokemonId: pokemon.id, userId: loggedUser.uid })
+              ? () => {
+                  setFavLoading(true);
+                  deleteFav({ id: favFilterd.uid || '' }, { setFavLoading });
+                }
+              : () => {
+                  setFavLoading(true);
+                  addFav(
+                    { pokemonId: pokemon.id, userId: loggedUser.uid },
+                    { setFavLoading }
+                  );
+                }
             : handleShowModalSign
         }
       >
         {loggedUser ? (
-          favFilterd ? (
+          favLoading ? (
+            <i className='fa-solid fa-spinner spinner'></i>
+          ) : favFilterd ? (
             <i className='fa-solid fa-star'></i>
           ) : (
             <i className='fa-regular fa-star'></i>
