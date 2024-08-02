@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Pokedex Rappid
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend hecho con React, Typescript, Redux toolkit, usando ContextAPI y custom hooks.
 
-Currently, two official plugins are available:
+## _Utilice:_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React Router Dom:** Para navegar entre paginas.
+- **Prime React:** Para la paginación.
+- **Axios:** Para el consumo de API.
+- **Redux Toolkit:** Para gestionar estados globales.
+- **Bootstrap:** Para algunos estilos.
+- **Interface de la pokedex:** Para definir la interface de los objetos de la API.
 
-## Expanding the ESLint configuration
+## _Sobre la web:_
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+La web consta de un login necesario si o si para dar o quitar los pokemons favoritos. Cada usuario podra ver sus favoritos y cerrar sesión.
 
-- Configure the top-level `parserOptions` property like this:
+La web consta de las siguientes paginas:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- **Home:** Listado de pokemons, con filtrados por nombre, tipos y ordenamiento.
+- **Detalle del pokemon:** Se visualzian los detalles del pokemon, como sus habilidades, peso, estadisticas, etc.
+- **Mi cuenta:** Se puede visualizar el detalle de la cuenta del usuario como nombre, email e imagen de perfil, como asi mismo el listado de pokemons que dio como favorito.
+
+**Las ruta 'Mi cuenta' esta protegida, por lo cual no es accesible a menos que se este autenticado.**
+
+## Instalación
+
+Ejecutar localmente
+
+```sh
+git clone https://github.com/JonasBusto/pokedex-rappid
+cd pokedex-rappid
+npm install
+npm run dev
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
